@@ -44,6 +44,9 @@ def calc_JanskyPerKelvin(Aeff_m2, Frequency_GHz, Diameter_m):
     # [W s K^-1 m^-2] -> [W m^-2 Hz-1 K^-1] -> 1e26 [Jy K^-1]
     #return (2.0 * 1.38e-23 / Aeff_m2 * 1e26) # this is better because "Aeff_m2" considers "eta_ap".
     return (2.0 * k_B / Aeff_m2 * 1e26) # this is better because "Aeff_m2" considers "eta_ap".
+    # 
+    # More references:
+    # S(Jy)/T_mb(K)=8.18E-7*theta(")^2*nu(GHz)^2 (Rohlfs & Wilson, Tools of Radioastronomy (2. ed., Eq. 8.20) -- http://www1.ynao.ac.cn/~jinhuahe/know_base/instruments/millimeter_radio/iram30m.htm
 
 
 def calc_ALMA_Bands(Frequency_GHz):
@@ -79,7 +82,7 @@ def calc_ALMA_Bands(Frequency_GHz):
 
 
 def calc_Sensitivity(Tint=[], Tsys=[], Nant=0, Npol=2, Bandwidth=0.0, bw=0.0, Velowidth=0.0, dv=0.0, 
-                     Frequency=0.0, freq=0.0, Telescope='NOEMA', Weather='winter', eta_ap=numpy.nan, 
+                     Frequency=0.0, freq=0.0, Telescope='NOEMA', Diameter=0, Weather='winter', eta_ap=numpy.nan, 
                      Verbose=True):
     # 
     # NOEMACapabilities.pdf 
@@ -95,9 +98,14 @@ def calc_Sensitivity(Tint=[], Tsys=[], Nant=0, Npol=2, Bandwidth=0.0, bw=0.0, Ve
     #               Omega = (pi * theta^2) / (4.0*ln(2))
     #         e.g. ALMA 12m, band 3, eta_ap = 0.71, Area = 113.1 m^2, so JpK = 0.71 * 1.38e-16 erg/K / 113.1 m^2 = 0.71 * 1.38e-16 * 1e23 / 113.1e4 [Jy/K * s cm^2 Hz cm^2] = 8.663129973 [Jy/K]
     #         e.g. ALMA 7m, band 3, eta_ap = 0.71, Area = 38.5 m^2, so JpK = 0.71 * 1380 / 38.5 = 25.44935065 [Jy/K]
+    #         e.g., IRAM 30m, 110GHz, eta_a = 0.75 * 0.79 = 0.59, see -- http://www.iram.es/IRAMES/telescope/telescopeSummary/telescope_summary.html
     #     \eta is an additional efficiency factor due to atmospheric phase noise
     #     Bandwidth in GHz (or Velowidth in km/s)
     #     Frequency in GHz
+    # 
+    # Example
+    #     from CrabPdBI import *
+    #     calc_Sensitivity(Tint=3600.0, Tsys=160.0, Nant=1, Npol=2, dv=500.0, freq=90.0, Telescope='ALMA 12m')
     # 
     # If input Frequency by argument freq
     if Frequency <= 0.0 and freq > 0.0:
@@ -335,7 +343,14 @@ def calc_Sensitivity(Tint=[], Tsys=[], Nant=0, Npol=2, Bandwidth=0.0, bw=0.0, Ve
                             JpK = calc_JanskyPerKelvin(eta_ap_7m[str(bandnumb)] * 38.5, Frequency, 7.0)
                         # 
                         #t_Tsys = 
-                    # 
+                    # # 
+                elif Diameter>0:
+                    telescop = Telescope
+                    beamsize = calc_BeamSize(Frequency, Diameter)
+                    bandnumb = -1
+                    eta = 0.5 #<TODO># main-beam coefficient converting T_A^* to T_MB
+                    eta_ap = 0.6 # 0.75 #<TODO># dish area aperture coefficient affecting Jy/K
+                    JpK = calc_JanskyPerKelvin(eta_ap * numpy.pi * numpy.power(Diameter/2.0,2), Frequency, Diameter)
                 # 
                 if Nant > 0:
                     t_Nant = Nant
@@ -354,7 +369,10 @@ def calc_Sensitivity(Tint=[], Tsys=[], Nant=0, Npol=2, Bandwidth=0.0, bw=0.0, Ve
                 # 
                 if eta is not numpy.nan and JpK is not numpy.nan and t_Tsys is not numpy.nan and t_Tint is not numpy.nan:
                     # rms = ( 2 * k_B * Tsys ) / ( Aeff * sqrt( N * (N-1) * BW * Tint * Npol) )
-                    rms = ( float(JpK) * float(t_Tsys) ) / ( float(eta) * numpy.sqrt(float(t_Nant)*float(t_Nant-1)*float(t_Tint)*float(Bandwidth)*1e9*float(Npol)) ) * 1e3 # mJy
+                    if t_Nant > 1:
+                        rms = ( float(JpK) * float(t_Tsys) ) / ( float(eta) * numpy.sqrt(float(t_Nant)*float(t_Nant-1)*float(t_Tint)*float(Bandwidth)*1e9*float(Npol)) ) * 1e3 # mJy
+                    else:
+                        rms = ( float(JpK) * float(t_Tsys) ) / ( float(eta) * numpy.sqrt(float(t_Tint)*float(Bandwidth)*1e9*float(Npol)) ) * 1e3 # mJy -- single dish mode
                     if Verbose:
                         print("")
                         print("Telescope = %s"%(telescop))
