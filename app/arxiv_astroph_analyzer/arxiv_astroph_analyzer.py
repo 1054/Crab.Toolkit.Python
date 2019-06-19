@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python3
 # 
 
 from p_import import *
@@ -6,114 +6,113 @@ from p_import import *
 #print(sys.path)
 
 # 
-# Subroutine of this code:
-# (1) Fetch papers from "https://arxiv.org/list?year=18&month=all&archive=astro-ph&submit=Go"
+# Aim of this code:
+# (1) Read paper data file, which is the output of "arxiv_astroph_data_downloader.py"
 # (2) Convert paper titles and abstracts into word vectors
 # (3) Use Machine Learning to sort papers into pre-defined scientific categories
 # 
 
 # 
-# (1) Fecth papers
-#   Arxiv API: https://arxiv.org/help/api/index
-#     API calls are made via an HTTP GET or POST requests to an appropriate url. For example, the url
-#     http://export.arxiv.org/api/query?search_query=all:electron
-#     A Python Example:
-#       import urllib
-#       url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'
-#       data = urllib.urlopen(url).read()
-#       print data
-#     Some notes:
-#       In cases where the API needs to be called multiple times in a row, we encourage you to play nice and incorporate a 3 second delay in your code. The detailed examples below illustrate how to do this in a variety of languages.
-#       Because of speed limitations in our implementation of the API, the maximum number of results returned from a single call (max_results) is limited to 30000 in slices of at most 2000 at a time, using the max_results and start query parameters. For example to retrieve matches 6001-8000:
-#       http://export.arxiv.org/api/query?search_query=all:electron&start=6000&max_results=8000
-#   Arxiv Open Archives Initiative (OAI) API: https://arxiv.org/help/oa/index
-#     This is an alternative API which can select date range
+# (1) Read paper data file, which is the output of "arxiv_astroph_data_downloader.py"
 # 
-
-
-date_from = '2017-01-01'
-date_until = '2017-01-31'
-data_filename = 'data_%s_%s.txt'%(date_from, date_until)
-#url_base = 'http://export.arxiv.org/api/query?search_query=cat:astro-ph.CO&start=0&max_results=100&sortBy=lastUpdatedDate&sortOrder=ascending&'
-url_base = 'http://export.arxiv.org/oai2?verb=ListRecords&' # see -- https://github.com/Mahdisadjadi/arxivscraper/blob/master/arxivscraper/arxivscraper.py
-namespace0 = {'ns0':"http://www.openarchives.org/OAI/2.0/"}
-namespace1 = {'ns1':"http://www.w3.org/2001/XMLSchema-instance"}
-namespace1 = {'ns2':"http://arxiv.org/OAI/arXiv/"}
-
-
-if not os.path.isfile(data_filename):
-    #url = 'http://export.arxiv.org/api/query?search_query=all:astroph&start=0&max_results=100'
-    url_core = url_base + 'metadataPrefix=arXiv&set=physics:astro-ph&from=%s&until=%s'%(date_from, date_until) # resumptionToken=%s         root.find(OAI + 'ListRecords').find(OAI + 'resumptionToken')
-    error_counter = 0
-    resumption_token = ''
-    data_output_str = ''
-    while error_counter < 10:
-        if len(resumption_token) == 0:
-            url = url_core
-        else:
-            url = url_base + 'resumptionToken=%s'%(resumption_token) # note that here is url_base
-        # 
-        try:
-            print('url = "%s"'%(url))
-            response = urlopen(url)
-        except HTTPError as err:
-            if err.code == 503:
-                print('Retrying after 3 seconds.')
-                time.sleep(3.0)
-                continue
-            else:
-                raise
-        # 
-        data_bytes = response.read()
-        # 
-        #xmltree.register_namespace('', 'http://www.w3.org/2001/XMLSchema-instance')
-        #xmltree.register_namespace('', 'http://www.openarchives.org/OAI/2.0/')
-        #xmltree.register_namespace('', 'http://arxiv.org/OAI/arXiv/')
-        #xmltree.register_namespace('', 'http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd')
-        data_tree_root = xmltree.fromstring(data_bytes)
-        # 
-        # 
-        resumption_token = ''
-        for data_tree_element in data_tree_root.findall('ns0:ListRecords', namespace0):
-            #print(data_tree_element)
-            for sub_element in data_tree_element.findall('ns0:resumptionToken', namespace0):
-                #print(sub_element)
-                #print(sub_element.attrib)
-                #print(sub_element.text)
-                if sub_element.text:
-                    resumption_token = sub_element.text
-        # 
-        data_pretty_str = minidom.parseString(xmltree.tostring(data_tree_root)).toprettyxml(indent='    ', encoding='UTF-8', newl='\n')
-        #for line in data_pretty_str.splitlines():
-        #    if line.strip():
-        #        print(line)
-        data_pretty_str = '\n'.join([str(line,'UTF-8') for line in data_pretty_str.splitlines() if line.strip()]) # remove annoying multiple blank lines
-        #print(data_pretty_str)
-        # 
-        if len(data_output_str) == 0:
-            data_output_str = data_pretty_str
-        else:
-            data_output_str = data_output_str + '\n' + data_pretty_str
-        # 
-        if len(resumption_token) == 0:
-            break
-    
-    with open(data_filename, 'w') as fp:
-        fp.write(data_output_str)
-
-if not os.path.isfile(data_filename):
-    print('Error! "%s" was not found!'%(data_filename))
+if not os.path.isfile('str_list.txt'):
+    data_filename = 'data_2017-01-01_2017-12-31_pretty.txt'
+    #data_filename = 'data_test.txt'
+    print('Reading "%s"' % (data_filename))
+    data_tree = xmltree.parse(data_filename)
+    data_tree_root = data_tree.getroot()
+    #print(data_tree_root.attrib)
+    #print(data_tree_root.tag)
+    # data_tree_root.findall('record')
+    str_list = []
+    paper_title_and_abstract_list = []
+    paper_category_list = []
+    regex_splitter = re.compile(r'(\s+|\".*?\"|\'.*?\'|\$.*?\$)')
+    record_counter = 0
+    for data_tree_item in data_tree_root:
+        if data_tree_item.tag == 'record':
+            record_header = data_tree_item.find('.//header')
+            record_metadata = data_tree_item.find('.//metadata')
+            for record_item in record_metadata:
+                if record_item.tag.endswith('arXiv'):
+                    arXiv_namespace = re.sub(r'{(.*)}arXiv', r'\1', record_item.tag)
+                    xmltree.register_namespace('', arXiv_namespace)
+                    arXiv_data_str = xmltree.tostring(record_item)
+                    arXiv_data = json.loads(json.dumps(xmltodict.parse(arXiv_data_str)))['arXiv']
+                    #print(arXiv_data_str)
+                    #pprint(arXiv_data)
+                    # 
+                    #arXiv_data['authors']['forenames']
+                    #arXiv_data['authors']['keyname']
+                    #arXiv_data['categories']
+                    #arXiv_data['title']
+                    #arXiv_data['abstract']
+                    # 
+                    str_parsed = arXiv_data['title'] + '\n' + '\n' + arXiv_data['abstract'].replace('\n',' ')
+                    str_parsed = re.sub(r'\s+', r' ', str_parsed)
+                    str_list.append(str_parsed)
+                    paper_title_and_abstract_list.append(str_parsed)
+                    # 
+                    paper_category_list.append(arXiv_data['categories'])
+                    #
+            record_counter = record_counter + 1
+            print('Read record %d' % (record_counter))
+    # write to file
+    with open('str_list.txt', 'w') as fp:
+        json.dump(str_list, fp, sort_keys=True, indent=4)
+    with open('paper_title_and_abstract_list.txt', 'w') as fp:
+        json.dump(paper_title_and_abstract_list, fp, sort_keys=True, indent=4)
+    with open('paper_category_list.txt', 'w') as fp:
+        json.dump(paper_category_list, fp, sort_keys=True, indent=4)
+    # 
     sys.exit()
 
+# 
+# read str_list.txt and analyze it
+with open('str_list.txt', 'r') as fp:
+    str_list = json.load(fp)
 
 
 
 # 
-# (2) Analyze papers
+# First vectorize paragraphs
+# -- https://towardsdatascience.com/machine-learning-nlp-text-classification-using-scikit-learn-python-and-nltk-c52b92a7c73a
+# -- https://github.com/javedsha/text-classification/blob/master/Text%2BClassification%2Busing%2Bpython%2C%2Bscikit%2Band%2Bnltk.py
 # 
-data_tree_root = xmltree.parse(data_filename)
-#print(data_tree_root.getroot().attrib)
-#print(data_tree_root.getroot().tag)
+from sklearn.feature_extraction.text import CountVectorizer
+count_vect = CountVectorizer()
+X_train_counts = count_vect.fit_transform(str_list)
+print('sklearn extracted %d word features from %d string.'%(X_train_counts.shape[1], X_train_counts.shape[0]))
+
+
+# 
+# Then build self-organizing map
+# -- http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
+#from sklearn.manifold import TSNE
+#X_lower_dimension_projection = TSNE(n_components=4).fit_transform(X_train_counts.toarray())
+from sklearn import cluster
+k_means = cluster.KMeans(n_clusters=12)
+k_means.fit(X_train_counts.toarray())
+
+
+# 
+# Then score term frequency (TF-IDF)
+# What is TF*IDF?
+# Put simply, the higher the TF*IDF score (weight), the rarer the term and vice versa. -- https://www.elephate.com/blog/what-is-tf-idf/
+# TF = term frequency
+# 
+from sklearn.feature_extraction.text import TfidfTransformer
+tfidf_transformer = TfidfTransformer()
+X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
+print(X_train_tfidf.shape)
+
+
+
+
+
+
+
+
 
 
 

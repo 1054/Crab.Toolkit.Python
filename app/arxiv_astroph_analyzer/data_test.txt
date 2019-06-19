@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ListRecords>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0704.0603</identifier>
+ <datestamp>2017-12-27</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0704.0603</id><created>2007-04-04</created><authors><author><keyname>Koza</keyname><forenames>J.</forenames></author><author><keyname>Kucera</keyname><forenames>A.</forenames></author><author><keyname>Ryb&#xe1;k</keyname><forenames>J.</forenames></author><author><keyname>W&#xf6;hl</keyname><forenames>H.</forenames></author></authors><title>The height dependence of temperature - velocity correlation in the solar
+  photosphere</title><categories>astro-ph</categories><comments>In press,&quot;Modern Solar Facilities - Advanced Solar Science&quot;,
+  (Gottingen), Universitatsverlag Gottingen, 139-142, 2007</comments><journal-ref>Modern solar facilities - advanced solar science, Editors: F.
+  Kneer, K. G. Puschmann, A. D. Wittmann, p. 139 (2007)</journal-ref><abstract>  We derive correlation coefficients between temperature and line-of-sight
+velocity as a function of optical depth throughout the solar photosphere for
+the non-magnetic photosphere and a small area of enhanced magnetic activity.
+The maximum anticorrelation of about -0.6 between temperature and line-of-sight
+velocity in the non-magnetic photosphere occurs at log tau5 = -0.4. The
+magnetic field is another decorrelating factor along with 5-min oscillations
+and seeing.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0704.2108</identifier>
+ <datestamp>2017-01-18</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0704.2108</id><created>2007-04-17</created><authors><author><keyname>Kim</keyname><forenames>Hyosun</forenames></author><author><keyname>Nakajima</keyname><forenames>Yasushi</forenames></author><author><keyname>Sung</keyname><forenames>Hwankyung</forenames></author><author><keyname>Moon</keyname><forenames>Dae-Sik</forenames></author><author><keyname>Koo</keyname><forenames>Bon-Chul</forenames></author></authors><title>A Near-Infrared Study of the Highly-Obscured Active Star-Forming Region
+  W51B</title><categories>astro-ph</categories><comments>12 pages, 10 eps figures, uses jkas.sty</comments><journal-ref>J.KoreanAstron.Soc.40:17-28,2007</journal-ref><doi>10.5303/JKAS.2007.40.1.017</doi><abstract>  We present wide-field JHKs-band photometric observations of the three compact
+HII regions G48.9-0.3, G49.0-0.3, and G49.2-0.3 in the active star-forming
+region W51B. The star clusters inside the three compact HII regions show the
+excess number of stars in the J-Ks histograms compared with reference fields.
+While the mean color excess ratio E(J-H)/E(H-Ks) of the three compact HII
+regions are similar to ~ 2.07, the visual extinctions toward them are somewhat
+different: ~ 17 mag for G48.9-0.3 and G49.0-0.3; ~ 23 mag for G49.2-0.3. Based
+on their sizes and brightnesses, we suggest that the age of each compact HII
+region is =&lt; 2 Myr. The inferred total stellar mass, ~ 1.4 x 10^4 M_sun, of
+W51B makes it one of the most active star forming regions in the Galaxy with
+the star formation efficiency of ~ 10 %.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0705.1208</identifier>
+ <datestamp>2017-04-27</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0705.1208</id><created>2007-05-09</created><updated>2009-05-01</updated><authors><author><keyname>Thid&#xe9;</keyname><forenames>B.</forenames></author><author><keyname>Then</keyname><forenames>H.</forenames></author><author><keyname>Sj&#xf6;holm</keyname><forenames>J.</forenames></author><author><keyname>Palmer</keyname><forenames>K.</forenames></author><author><keyname>Bergman</keyname><forenames>J.</forenames></author><author><keyname>Carozzi</keyname><forenames>T. D.</forenames></author><author><keyname>Istomin</keyname><forenames>Ya. N.</forenames></author><author><keyname>Ibragimov</keyname><forenames>N. H.</forenames></author><author><keyname>Khamitova</keyname><forenames>R.</forenames></author></authors><title>Utilization of photon orbital angular momentum in the low-frequency
+  radio domain</title><categories>astro-ph physics.class-ph</categories><comments>4 pages, 5 figures. Changed title, identical to the paper published
+  in PRL</comments><journal-ref>Phys.Rev.Lett.99:087701,2007</journal-ref><doi>10.1103/PhysRevLett.99.087701</doi><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We show numerically that vector antenna arrays can generate radio beams which
+exhibit spin and orbital angular momentum characteristics similar to those of
+helical Laguerre-Gauss laser beams in paraxial optics. For low frequencies (&lt; 1
+GHz), digital techniques can be used to coherently measure the instantaneous,
+local field vectors and to manipulate them in software. This opens up for new
+types of experiments that go beyond those currently possible to perform in
+optics, for information-rich radio physics applications such as radio
+astronomy, and for novel wireless communication concepts.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0705.1240</identifier>
+ <datestamp>2017-02-15</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0705.1240</id><created>2007-05-09</created><updated>2009-03-11</updated><authors><author><keyname>Ouyed</keyname><forenames>Rachid</forenames><affiliation>University of Calgary, Alberta, Canada</affiliation></author><author><keyname>Leahy</keyname><forenames>Denis</forenames><affiliation>University of Calgary, Alberta, Canada</affiliation></author><author><keyname>Staff</keyname><forenames>Jan</forenames><affiliation>University of Calgary, Alberta, Canada</affiliation></author><author><keyname>Niebergal</keyname><forenames>Brian</forenames><affiliation>University of Calgary, Alberta, Canada</affiliation></author></authors><title>Quark-nova explosion inside a collapsar: application to Gamma Ray Bursts</title><categories>astro-ph</categories><comments>10 journal pages and 5 figures (updated references and extended
+  discussions; accepted for publication in Advances in Astronomy)</comments><doi>10.1155/2009/463521</doi><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  If a quark-nova occurs inside a collapsar, the interaction between the
+quark-nova ejecta (relativistic iron-rich chunks) and the collapsar envelope,
+leads to features indicative of those observed in Gamma Ray Bursts. The
+quark-nova ejecta collides with the stellar envelope creating an outward moving
+cap
+  (Gamma ~ 1-10) above the polar funnel. Prompt gamma-ray burst emission from
+internal shocks in relativistic jets (following accretion onto the quark star)
+become visible after the cap becomes optically thin. Model features include:
+(i) precursor activity (optical, X-ray, gamma-ray), (ii) prompt gamma-ray
+emission, and (iii) afterglow emission. We discuss SN-less long duration GRBs,
+short hard GRBs (including association and non-association with star forming
+regions), dark GRBs, the energetic X-ray flares detected in Swift GRBs, and the
+near-simultaneous optical and gamma-ray prompt emission observed in GRBs in the
+context of our model.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0705.1771</identifier>
+ <datestamp>2017-01-18</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0705.1771</id><created>2007-05-12</created><authors><author><keyname>Nakajima</keyname><forenames>H.</forenames></author><author><keyname>Yamaguchi</keyname><forenames>H.</forenames></author><author><keyname>Matsumoto</keyname><forenames>H.</forenames></author><author><keyname>Tsuru</keyname><forenames>T. G.</forenames></author><author><keyname>Koyama</keyname><forenames>K.</forenames></author><author><keyname>Tsunemi</keyname><forenames>H.</forenames></author><author><keyname>Hayashida</keyname><forenames>K.</forenames></author><author><keyname>Torii</keyname><forenames>K.</forenames></author><author><keyname>Namiki</keyname><forenames>M.</forenames></author><author><keyname>Katsuda</keyname><forenames>S.</forenames></author><author><keyname>Shoji</keyname><forenames>M.</forenames></author><author><keyname>Matsuura</keyname><forenames>D.</forenames></author><author><keyname>Miyauchi</keyname><forenames>T.</forenames></author><author><keyname>Dotani</keyname><forenames>T.</forenames></author><author><keyname>Ozaki</keyname><forenames>M.</forenames></author><author><keyname>Murakami</keyname><forenames>H.</forenames></author><author><keyname>Bautz</keyname><forenames>M. W.</forenames></author><author><keyname>Kissel</keyname><forenames>S. E.</forenames></author><author><keyname>LaMarr</keyname><forenames>B.</forenames></author><author><keyname>Prigozhin</keyname><forenames>G. Y.</forenames></author></authors><title>Performance of the Charge Injection Capability of Suzaku XIS</title><categories>astro-ph</categories><comments>Paper contains 18 figures and 15 tables. Accepted for publication in
+  PASJ</comments><doi>10.1093/pasj/60.sp1.S1</doi><abstract>  A charge injection technique is applied to the X-ray CCD camera, XIS (X-ray
+Imaging Spectrometer) onboard Suzaku. The charge transfer inefficiency (CTI) in
+each CCD column (vertical transfer channel) is measured by the injection of
+charge packets into a transfer channel and subsequent readout. This paper
+reports the performances of the charge injection capability based on the ground
+experiments using a radiation damaged device, and in-orbit measurements of the
+XIS. The ground experiments show that charges are stably injected with the
+dispersion of 91eV in FWHM in a specific column for the charges equivalent to
+the X-ray energy of 5.1keV. This dispersion width is significantly smaller than
+that of the X-ray events of 113eV (FWHM) at approximately the same energy. The
+amount of charge loss during transfer in a specific column, which is measured
+with the charge injection capability, is consistent with that measured with the
+calibration source. These results indicate that the charge injection technique
+can accurately measure column-dependent charge losses rather than the
+calibration sources. The column-to-column CTI correction to the calibration
+source spectra significantly reduces the line widths compared to those with a
+column-averaged CTI correction (from 193eV to 173eV in FWHM on an average at
+the time of one year after the launch). In addition, this method significantly
+reduces the low energy tail in the line profile of the calibration source
+spectrum.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0705.2017</identifier>
+ <datestamp>2017-01-18</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0705.2017</id><created>2007-05-14</created><updated>2008-03-04</updated><authors><author><keyname>Fujita</keyname><forenames>Yutaka</forenames><affiliation>Osaka</affiliation></author><author><keyname>Tawa</keyname><forenames>Noriaki</forenames><affiliation>Osaka</affiliation></author><author><keyname>Hayashida</keyname><forenames>Kiyoshi</forenames><affiliation>Osaka</affiliation></author><author><keyname>Takizawa</keyname><forenames>Motokazu</forenames><affiliation>Yamagata</affiliation></author><author><keyname>Matsumoto</keyname><forenames>Hironori</forenames><affiliation>Kyoto</affiliation></author><author><keyname>Okabe</keyname><forenames>Nobuhiro</forenames><affiliation>Tohoku</affiliation></author><author><keyname>Reiprich</keyname><forenames>Thomas. H.</forenames><affiliation>Bonn</affiliation></author></authors><title>High Metallicity of the X-Ray Gas up to the Virial Radius of a Binary
+  Cluster of Galaxies: Evidence of Galactic Superwinds at High-Redshift</title><categories>astro-ph</categories><comments>Typo corrected. The published version is available on-line free of
+  charge by the end of 2008. http://pasj.asj.or.jp/v60/sp1/60s133/60s133.pdf</comments><journal-ref>PASJ, 60, S343 (2008)</journal-ref><doi>10.1093/pasj/60.sp1.S343</doi><abstract>  We present an analysis of a Suzaku observation of the link region between the
+galaxy clusters A399 and A401. We obtained the metallicity of the intracluster
+medium (ICM) up to the cluster virial radii for the first time. We determine
+the metallicity where the virial radii of the two clusters cross each other (~2
+Mpc away from their centers) and found that it is comparable to that in their
+inner regions (~0.2 Zsun). It is unlikely that the uniformity of metallicity up
+to the virial radii is due to mixing caused by a cluster collision. Since the
+ram-pressure is too small to strip the interstellar medium of galaxies around
+the virial radius of a cluster, the fairly high metallicity that we found there
+indicates that the metals in the ICM are not transported from member galaxies
+by ram-pressure stripping. Instead, the uniformity suggests that the
+proto-cluster region was extensively polluted with metals by extremely powerful
+outflows (superwinds) from galaxies before the clusters formed. We also
+searched for the oxygen emission from the warm--hot intergalactic medium in
+that region and obtained a strict upper limit of the hydrogen density
+(nH&lt;4.1x10^-5 cm^-3).
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0706.0278</identifier>
+ <datestamp>2017-01-18</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0706.0278</id><created>2007-06-02</created><authors><author><keyname>Takei</keyname><forenames>D.</forenames></author><author><keyname>Tsujimoto</keyname><forenames>M.</forenames></author><author><keyname>Kitamoto</keyname><forenames>S.</forenames></author><author><keyname>Morii</keyname><forenames>M.</forenames></author><author><keyname>Ebisawa</keyname><forenames>K.</forenames></author><author><keyname>Maeda</keyname><forenames>Y.</forenames></author><author><keyname>Miller</keyname><forenames>E. D.</forenames></author></authors><title>Detection of a Rare Supersoft Outburst Event during a Suzaku Observation
+  of 1E0102.2-7219</title><categories>astro-ph</categories><comments>9 pages, 7 figures, 3 tables. PASJ in press</comments><doi>10.1093/pasj/60.sp1.S231</doi><abstract>  We report the detection of a transient X-ray source toward the Small
+Magellanic Cloud (SMC) using the X-ray Imaging Spectrometer (XIS) onboard the
+Suzaku telescope. The source was detected at the edge of the XIS image during a
+routine observation of the calibration source 1E 0102.2-7219, a supernova
+remnant in the SMC. We constrained the source position using ray-tracing
+simulations. No such transient source was found at the position in the other
+Suzaku observations nor in all the available archived images of other X-ray
+missions for the last ~28 years. The XIS spectrum can be explained by a single
+blackbody with a temperature of ~72 eV, and an interstellar extinction of
+~4.9x10^{20} H atoms cm^{-2} consistent with the value to the SMC. An
+additional absorption edge at ~0.74 keV was also confirmed, which is presumably
+due to the absorption by helium-like oxygen ions. Assuming that the source is
+at the distance of the SMC, the X-ray luminosity in the 0.2-2.0 keV band is
+~10^{37} erg s^{-1} and the radius of the source is ~10^{8} cm. The XIS light
+curve shows about a two-fold decline in X-ray flux during the 24 ks
+observation. Together with the archived data, the X-ray flux in the burst is at
+least three orders of magnitude brighter than the undetected quiescent level.
+All these properties are often seen among supersoft sources (SSSs). We conclude
+that the transient source is another example of SSS in the SMC.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0706.1279</identifier>
+ <datestamp>2017-08-23</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0706.1279</id><created>2007-06-09</created><updated>2007-11-26</updated><authors><author><keyname>Famaey</keyname><forenames>B.</forenames></author><author><keyname>Angus</keyname><forenames>G. W.</forenames></author><author><keyname>Gentile</keyname><forenames>G.</forenames></author><author><keyname>Shan</keyname><forenames>H. Y.</forenames></author><author><keyname>Zhao</keyname><forenames>H. S.</forenames></author></authors><title>The wedding of modified dynamics and non-exotic dark matter in galaxy
+  clusters</title><categories>astro-ph</categories><comments>to appear in World Scientific, proceedings of DARK 2007</comments><doi>10.1142/9789812814357_0039</doi><abstract>  We summarize the status of Modified Newtonian Dynamics (MOND) in galaxy
+clusters. The observed acceleration is typically larger than the acceleration
+threshold of MOND in the central regions, implying that some dark matter is
+necessary to explain the mass discrepancy there. A plausible resolution of this
+issue is that the unseen mass in MOND is in the form of ordinary neutrinos with
+masses just below the experimentally detectable limit. In particular, we show
+that the lensing mass reconstructions of the clusters 1E0657-56 (the bullet
+cluster) and Cl0024+17 (the ring) do not pose a new challenge to this scenario.
+However, the mass discrepancy for cool X-ray emitting groups, in which
+neutrinos cannot cluster, pose a more serious problem, meaning that dark
+baryons could present a more satisfactory solution to the problem of unseen
+mass in MOND clusters.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0706.3209</identifier>
+ <datestamp>2017-02-15</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0706.3209</id><created>2007-06-21</created><authors><author><keyname>Dainotti</keyname><forenames>Maria Giovanna</forenames></author><author><keyname>Bernardini</keyname><forenames>Maria Grazia</forenames></author><author><keyname>Bianco</keyname><forenames>Carlo Luciano</forenames></author><author><keyname>Caito</keyname><forenames>Letizia</forenames></author><author><keyname>Guida</keyname><forenames>Roberto</forenames></author><author><keyname>Ruffini</keyname><forenames>Remo</forenames></author></authors><title>GRB060218 and GRBs associated with Supernovae Ib/c</title><categories>astro-ph</categories><comments>4 pages, 3 figures, to appear in A&amp;A Letters</comments><journal-ref>Astron.Astrophys. 471 (2007) L29-L32</journal-ref><doi>10.1051/0004-6361:20078068</doi><abstract>  We plan to fit the complete gamma- and X-ray light curves of the long
+duration GRB060218, including the prompt emission, in order to clarify the
+nature of the progenitors and the astrophysical scenario of the class of GRBs
+associated to SNe Ib/c. The initial total energy of the electron-positron
+plasma E_{e^\pm}^{tot}=2.32\times 10^{50} erg has a particularly low value
+similarly to the other GRBs associated with SNe. For the first time we observe
+a baryon loading B=10^{-2} which coincides with the upper limit for the
+dynamical stability of the fireshell. The effective CircumBurst Medium (CBM)
+density shows a radial dependence n_{cbm} \propto r^{-\alpha} with
+1.0&lt;\alpha&lt;1.7 and monotonically decreases from 1 to 10^{-6} particles/cm^3.
+Such a behavior is interpreted as due to a fragmentation in the fireshell.
+Analogies with the fragmented density and filling factor characterizing Novae
+are outlined. The fit presented is particularly significant in view of the
+complete data set available for GRB060218 and of the fact that it fulfills the
+Amati relation. We fit GRB060218, usually considered as an X-Ray Flash (XRF),
+as a &quot;canonical GRB&quot; within our theoretical model. The smallest possible black
+hole, formed by the gravitational collapse of a neutron star in a binary
+system, is consistent with the especially low energetics of the class of GRBs
+associated with SNe Ib/c. We give the first evidence for a fragmentation in the
+fireshell. Such a fragmentation is crucial in explaining both the unusually
+large T_{90} and the consequently inferred abnormal low value of the CBM
+effective density.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0706.4146</identifier>
+ <datestamp>2017-01-18</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0706.4146</id><created>2007-06-28</created><updated>2009-04-17</updated><authors><author><keyname>Yamaguchi</keyname><forenames>Hiroya</forenames></author><author><keyname>Koyama</keyname><forenames>Katsuji</forenames></author><author><keyname>Katsuda</keyname><forenames>Satoru</forenames></author><author><keyname>Nakajima</keyname><forenames>Hiroshi</forenames></author><author><keyname>Hughes</keyname><forenames>John P.</forenames></author><author><keyname>Bamba</keyname><forenames>Aya</forenames></author><author><keyname>Hiraga</keyname><forenames>Junko S.</forenames></author><author><keyname>Mori</keyname><forenames>Koji</forenames></author><author><keyname>Ozaki</keyname><forenames>Masanobu</forenames></author><author><keyname>Tsuru</keyname><forenames>Takeshi Go</forenames></author></authors><title>X-Ray Spectroscopy of SN 1006 with Suzaku</title><categories>astro-ph</categories><comments>12 pages, 9 figures (14 figure files), accepted for publication in
+  PASJ</comments><journal-ref>Publ. Astron. Soc. Japan (PASJ), Vol.60, S141, 2008</journal-ref><doi>10.1093/pasj/60.sp1.S141</doi><license>http://arxiv.org/licenses/nonexclusive-distrib/1.0/</license><abstract>  We report on observations of SN 1006 with the X-ray Imaging Spectrometers
+(XIS) on board Suzaku. We firmly detected K-shell emission from Fe, for the
+first time, and find that the Fe ionization state is quite low. The broad band
+spectrum extracted from the southeast of the remnant is well fitted with a
+model consisting of three optically thin thermal non-equilibrium ionization
+plasmas and a power-law component. Two of the thermal models are highly
+overabundant in heavy elements and, hence, are likely due to ejecta. These
+components have different ionization parameters: $n_et \sim 1.4\times 10^{10}$
+cm$^{-3}$ s and $n_et \sim 7.7\times 10^8$ cm$^{-3}$ s and it is the later one
+that produces the Fe-K emission. This suggests that Fe has been heated by the
+reverse shock more recently than the other elements, consistent with a picture
+where the ejecta are stratified by composition with Fe in the interior. On the
+other hand, the third thermal component is assumed to be solar abundance, and
+we associate it with emission from the interstellar medium (ISM). The electron
+temperature and ionization parameter are $kT_e \sim $0.5 keV and $n_et \sim
+5.8\times 10^9$ cm$^{-3}$ s. The electron temperature is lower than that
+expected from the shock velocity which suggests a lack of collisionless
+electron heating at the forward shock. The extremely low ionization parameter
+and extreme non-equilibrium state are due to the low density of the ambient
+medium.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0707.0472</identifier>
+ <datestamp>2017-08-23</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0707.0472</id><created>2007-07-03</created><authors><author><keyname>Zacek</keyname><forenames>Viktor</forenames></author></authors><title>Dark Matter</title><categories>astro-ph hep-ex</categories><comments>Proc. of the 2007 Lake Louise Winter Institute, March 2007; 14 pages,
+  13 figures</comments><doi>10.1142/9789812776105_0007</doi><abstract>  The nature of the main constituents of the mass of the universe is one of the
+outstanding riddles of cosmology and astro-particle physics. Current models
+explaining the evolution of the universe, and measurements of the various
+components of its mass, all have in common that an appreciable contribution to
+that mass is non-luminous and non-baryonic, and that a large fraction of this
+so-called dark matter must be in the form of non-relativistic massive particles
+(Cold Dark Matter: CDM). In the spirit of the Lake Louise Winter Institute
+Lectures we take a look at the latest astronomical discoveries and report on
+the status of direct and indirect Dark Matter searches.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0707.0687</identifier>
+ <datestamp>2017-08-23</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0707.0687</id><created>2007-07-04</created><authors><author><keyname>Gai</keyname><forenames>Moshe</forenames><affiliation>Yale and UConn-LNS at Avery Point</affiliation></author></authors><title>The Dissociation of 8B in the Coulomb Field and the Validity of the CD
+  Method</title><categories>nucl-ex astro-ph nucl-th</categories><comments>Invited Talk, Spring Seminar on Nuclear Physics, May 20 - 24, 2007,
+  Vico Equense, Italy. Work Supported by USDOE grant No. DE-FG02-94ER40870</comments><doi>10.1142/9789812779038_0059</doi><abstract>  The GSI1, GSI2 (as well as the RIKEN2 and the corrected GSI2) measurements of
+the Coulomb Dissociation (CD) of 8B are in good agreement with the most recent
+Direct Capture (DC) 7Be(p,g)8B reaction measurement performed at Weizmann and
+in agreement with the Seattle result. Yet it was claimed that the CD and DC
+results are sufficiently different and need to be reconciled. We show that
+these statements arise from a misunderstanding (as well as misrepresentation)
+of CD experiments. We recall a similar strong statement questioning the
+validity of the CD method due to an invoked large E2 component that was also
+shown to arise from a misunderstanding of the CD method. In spite of the good
+agreement between DC and CD data the slope of the astrophysical cross section
+factor (S17) can not be extracted with high accuracy due to a discrepancy
+between the recent DC data as well as a discrepancy of the three reports of the
+GSI CD data. The slope is directly related to the d-wave component that
+dominates at higher energies and must be subtracted from measured data to
+extrapolate to zero energy. Hence the uncertainty of the measured slope leads
+to an additional uncertainty of the extrapolated zero energy cross section
+factor, S17(0). This uncertainty must be alleviated by future experiments to
+allow a precise determination of S17(0), a goal that so far has not be achieved
+in spite of strong statement(s) that appeared in the literature.
+</abstract></arXiv>
+</metadata>
+</record>
+<record>
+<header>
+ <identifier>oai:arXiv.org:0707.2334</identifier>
+ <datestamp>2017-03-14</datestamp>
+ <setSpec>physics:astro-ph</setSpec>
+</header>
+<metadata>
+ <arXiv xmlns="http://arxiv.org/OAI/arXiv/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://arxiv.org/OAI/arXiv/ http://arxiv.org/OAI/arXiv.xsd">
+ <id>0707.2334</id><created>2007-07-16</created><authors><author><keyname>Lennon</keyname><forenames>Daniel J.</forenames></author></authors><title>UV Spectroscopy of Metal-Poor Massive Stars in the Small Magellanic
+  Cloud</title><categories>astro-ph</categories><comments>4 pages, 3 figures. To appear in 'The Impact of HST on European
+  Astronomy', Eds., G. De Marchi &amp; F.D. Macchetto, Astrophysics &amp; Space
+  Science, Springer</comments><doi>10.1007/978-90-481-3400-7_4</doi><abstract>  The Hubble Space Telescope has provided the first clear evidence for weaker
+winds of metal-poor massive stars in the Small Magellanic Cloud, confirming
+theoretical predictions of the metallicity dependence of mass-loss rates and
+wind terminal velocities. For lower luminosity O-type stars however, derived
+mass-loss rates are orders of magnitude lower than predicted, and are at
+present unexplained.
+</abstract></arXiv>
+</metadata>
+</record>
+
+
+
+
+
+
+</ListRecords>
