@@ -1,0 +1,20 @@
+# 
+# python startup file 
+# -- http://stackoverflow.com/questions/4289937/how-to-repeat-last-command-in-python-interpreter-shell
+# Just set the env variable PYTHONSTARTUP to the filepath containing above code. 
+# 
+import readline 
+import rlcompleter 
+import atexit 
+import os 
+# tab completion 
+readline.parse_and_bind('tab: complete') 
+# history file 
+histfile = os.path.join(os.environ['HOME'], '.pythonhistory') 
+try: 
+    readline.read_history_file(histfile) 
+except IOError: 
+    pass 
+atexit.register(readline.write_history_file, histfile) 
+del os, histfile, readline, rlcompleter
+

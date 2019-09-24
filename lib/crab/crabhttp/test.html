@@ -1,0 +1,23 @@
+<HTML>  
+    <HEAD>  
+        <SCRIPT type="text/javascript">  
+            function test() {  
+                var xmlhttp = new XMLHttpRequest();  
+                xmlhttp.onreadystatechange = function() {  
+                    if(this.readyState == 4 && this.status == 200) {  
+                        document.getElementById("log").innerHTML = this.responseText;  
+                    }  
+                };  
+                xmlhttp.open("GET", "?cmd=1&opt=2.0", true);  
+                xmlhttp.send();  
+            }  
+        </SCRIPT>  
+    </HEAD>  
+    <BODY>  
+        <BUTTON onclick="test()">test</BUTTON>  
+        <DIV>  
+            <TEXTAREA id="log" rows="10" cols="40" readonly=true></TEXTAREA>  
+        </DIV>  
+    </BODY>  
+</HTML>  
+    

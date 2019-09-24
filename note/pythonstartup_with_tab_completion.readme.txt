@@ -1,0 +1,3 @@
+cat pythonstartup_with_tab_completion >> ~/.pythonstartup
+export PYTHONSTARTUP="$HOME/.pythonstartup"
+
