@@ -29,14 +29,6 @@
 #   Blender API Documentation:
 #       https://docs.blender.org/api/2.79/bpy.ops.mesh.html?highlight=primitive%20cube
 # 
-#   Blender document about updating scripts from 2.79
-#       https://archive.blender.org/wiki/index.php/Dev:2.8/Source/Python/UpdatingScripts/
-#       https://blenderartists.org/t/2-80-cheat-sheet-for-updating-add-ons/1148974
-#       and my own experience:
-#         color needs to be 4 numbers
-#         t_obj.select = True|False becomes t_obj.select_set(True|False)
-#         nodes
-# 
 #   Last update: 
 #       20190803, initialized
 # 
@@ -82,51 +74,20 @@ def create_a_cylinder(my_cylinder_origin,
     my_cylinder_obj.name = my_cylinder_name
     # 
     # create a material
-    if bpy.app.version <= (2, 79, 99):
-        my_cylinder_mat = bpy.data.materials.new(name = my_cylinder_name + '_material')
-        my_cylinder_mat.diffuse_color = my_cylinder_color # (1., 0., 0.) # RGB, here is red
-        my_cylinder_mat.diffuse_shader = 'LAMBERT'
-        my_cylinder_mat.diffuse_intensity = 1.0
-        my_cylinder_mat.specular_color = (1., 1., 1.)
-        my_cylinder_mat.specular_shader = 'COOKTORR'
-        my_cylinder_mat.specular_intensity = 0.5
-        my_cylinder_mat.alpha = 1
-        my_cylinder_mat.ambient = 1
-        my_cylinder_mat.emit = 1 # set it to emit light
-        #my_cylinder_mat.type # 'SURFACE'
-        # 
-        # apply the material to the object
-        my_cylinder_obj.data.materials.append(my_cylinder_mat)
-    else:
-        # For Blender 2.80. 
-        # see -- https://blender.stackexchange.com/questions/146269/python-2-8-eliminating-shadow-by-adding-emission-shader-to-background-plane-im
-        # see -- https://blender.stackexchange.com/questions/157235/blender-2-8-principled-bsdf-getting-emissive-material-when-trying-to-assign-h
-        my_cylinder_mat = bpy.data.materials.new(name = my_cylinder_name + '_material')
-        #my_cylinder_mat.diffuse_color = my_cylinder_color # (1., 0., 0.) # RGB, here is red
-        #my_cylinder_mat.specular_color = (1., 1., 1.)
-        # set nodes
-        my_cylinder_mat.use_nodes = True
-        nodes = my_cylinder_mat.node_tree.nodes
-        # use principle bsdf
-        principled_bsdf = nodes.get("Principled BSDF")
-        principled_bsdf.inputs[0].default_value = (my_cylinder_color[0], my_cylinder_color[1], my_cylinder_color[2], 1.0) #RGBA  
-        principled_bsdf.inputs[4].default_value = (0) #metallic =1 dielectric=0 
-        principled_bsdf.inputs[7].default_value = (0) #roughness
-        principled_bsdf.inputs[17].default_value = (my_cylinder_color[0], my_cylinder_color[1], my_cylinder_color[2], 1.0) #emission  
-        # create needed Nodes
-        #nodes.clear()
-        #nodeOut = nodes.new(type='ShaderNodeOutputMaterial')
-        #nodeEmission = nodes.new(type='ShaderNodeEmission')
-        #nodeTexture = nodes.new(type='ShaderNodeTexImage')
-        # set color
-        #nodeEmission.inputs['Color'].default_value = (my_cylinder_color[0], my_cylinder_color[1], my_cylinder_color[2], 1.0)
-        #nodeEmission.inputs['Strength'].default_value = 1.0
-        # link together
-        #links = my_cylinder_mat.node_tree.links
-        #linkOut = links.new(nodeEmission.outputs[0], nodeOut.inputs[0])
-        #linkTexture = links.new(nodeTexture.outputs[0], nodeEmission.inputs[0])
-        # set as active material
-        my_cylinder_obj.active_material = my_cylinder_mat
+    my_cylinder_mat = bpy.data.materials.new(name = my_cylinder_name + '_material')
+    my_cylinder_mat.diffuse_color = my_cylinder_color # (1., 0., 0.) # RGB, here is red
+    my_cylinder_mat.diffuse_shader = 'LAMBERT'
+    my_cylinder_mat.diffuse_intensity = 1.0
+    my_cylinder_mat.specular_color = (1., 1., 1.)
+    my_cylinder_mat.specular_shader = 'COOKTORR'
+    my_cylinder_mat.specular_intensity = 0.5
+    my_cylinder_mat.alpha = 1
+    my_cylinder_mat.ambient = 1
+    my_cylinder_mat.emit = 1 # set it to emit light
+    #my_cylinder_mat.type # 'SURFACE'
+    # 
+    # apply the material to the object
+    my_cylinder_obj.data.materials.append(my_cylinder_mat)
     # 
     # end of function, return the created object
     return my_cylinder_obj
@@ -171,36 +132,21 @@ def create_a_cone(my_cone_origin,
     my_cone_obj.name = my_cone_name
     # 
     # create a material
-    if bpy.app.version <= (2, 79, 99):
-        my_cone_mat = bpy.data.materials.new(name = my_cone_name + '_material')
-        my_cone_mat.diffuse_color = my_cone_color # (1., 0., 0.) # RGB, here is red
-        my_cone_mat.diffuse_shader = 'LAMBERT'
-        my_cone_mat.diffuse_intensity = 1.0
-        my_cone_mat.specular_color = (1., 1., 1.)
-        my_cone_mat.specular_shader = 'COOKTORR'
-        my_cone_mat.specular_intensity = 0.5
-        my_cone_mat.alpha = 1
-        my_cone_mat.ambient = 1
-        my_cone_mat.emit = 1 # set it to emit light
-        #my_cone_mat.node_tree.nodes.new("ShaderNodeEmission")
-        #my_cone_mat.node_tree.nodes["Emission"].inputs["Color"].default_value = my_cone_color # RGB or RGBA
-        # 
-        # apply the material to the object
-        my_cone_obj.data.materials.append(my_cone_mat)
-    else:
-        # For Blender 2.80. 
-        my_cone_mat = bpy.data.materials.new(name = my_cone_name + '_material')
-        # set nodes
-        my_cone_mat.use_nodes = True
-        nodes = my_cone_mat.node_tree.nodes
-        # use principle bsdf
-        principled_bsdf = nodes.get("Principled BSDF")
-        principled_bsdf.inputs[0].default_value = (my_cone_color[0], my_cone_color[1], my_cone_color[2], 1.0) #RGBA  
-        principled_bsdf.inputs[4].default_value = (0) #metallic =1 dielectric=0 
-        principled_bsdf.inputs[7].default_value = (0) #roughness
-        principled_bsdf.inputs[17].default_value = (my_cone_color[0], my_cone_color[1], my_cone_color[2], 1.0) #emission  
-        # set as active material
-        my_cone_obj.active_material = my_cone_mat
+    my_cone_mat = bpy.data.materials.new(name = my_cone_name + '_material')
+    my_cone_mat.diffuse_color = my_cone_color # (1., 0., 0.) # RGB, here is red
+    my_cone_mat.diffuse_shader = 'LAMBERT'
+    my_cone_mat.diffuse_intensity = 1.0
+    my_cone_mat.specular_color = (1., 1., 1.)
+    my_cone_mat.specular_shader = 'COOKTORR'
+    my_cone_mat.specular_intensity = 0.5
+    my_cone_mat.alpha = 1
+    my_cone_mat.ambient = 1
+    my_cone_mat.emit = 1 # set it to emit light
+    #my_cone_mat.node_tree.nodes.new("ShaderNodeEmission")
+    #my_cone_mat.node_tree.nodes["Emission"].inputs["Color"].default_value = my_cone_color # RGB or RGBA
+    # 
+    # apply the material to the object
+    my_cone_obj.data.materials.append(my_cone_mat)
     # 
     # end of function, return the created object
     return my_cone_obj
@@ -298,63 +244,35 @@ def create_a_sphere(my_sphere_location,
     # create it
     if my_sphere_type == 'ico_sphere':
         # ico_sphere
-        if bpy.app.version <= (2, 79, 99):
-            bpy.ops.mesh.primitive_ico_sphere_add(
-                size = my_sphere_radius, 
-                location = my_sphere_location, 
-            )
-        else:
-            bpy.ops.mesh.primitive_ico_sphere_add(
-                radius = my_sphere_radius, 
-                location = my_sphere_location, 
-            )
+        bpy.ops.mesh.primitive_ico_sphere_add(
+            size = my_sphere_radius, 
+            location = my_sphere_location, 
+        )
     else:
-        if bpy.app.version <= (2, 79, 99):
-            # uv_sphere
-            bpy.ops.mesh.primitive_uv_sphere_add(
-                size = my_sphere_radius, 
-                location = my_sphere_location, 
-            )
-        else:
-            # uv_sphere
-            bpy.ops.mesh.primitive_uv_sphere_add(
-                radius = my_sphere_radius, 
-                location = my_sphere_location, 
-            )
+        # uv_sphere
+        bpy.ops.mesh.primitive_uv_sphere_add(
+            size = my_sphere_radius, 
+            location = my_sphere_location, 
+        )
     # 
     # then retrieve its object variable and set its name
     my_sphere_obj = bpy.context.object
     my_sphere_obj.name = my_sphere_name
     # 
     # create a material
-    if bpy.app.version <= (2, 79, 99):
-        my_sphere_mat = bpy.data.materials.new(name = my_sphere_name + '_material')
-        my_sphere_mat.diffuse_color = my_sphere_color # RGB
-        my_sphere_mat.diffuse_shader = 'LAMBERT'
-        my_sphere_mat.diffuse_intensity = 1.0
-        my_sphere_mat.specular_color = (1., 1., 1.)
-        my_sphere_mat.specular_shader = 'COOKTORR'
-        my_sphere_mat.specular_intensity = 0.5
-        my_sphere_mat.alpha = 1
-        my_sphere_mat.ambient = 1
-        my_sphere_mat.emit = 1 # set it to emit light
-        # 
-        # apply the material to the object
-        my_sphere_obj.data.materials.append(my_sphere_mat)
-    else:
-        # For Blender 2.80. 
-        my_sphere_mat = bpy.data.materials.new(name = my_sphere_name + '_material')
-        # set nodes
-        my_sphere_mat.use_nodes = True
-        nodes = my_sphere_mat.node_tree.nodes
-        # use principle bsdf
-        principled_bsdf = nodes.get("Principled BSDF")
-        principled_bsdf.inputs[0].default_value = (my_sphere_color[0], my_sphere_color[1], my_sphere_color[2], 1.0) #RGBA  
-        principled_bsdf.inputs[4].default_value = (0) #metallic =1 dielectric=0 
-        principled_bsdf.inputs[7].default_value = (0) #roughness
-        principled_bsdf.inputs[17].default_value = (my_sphere_color[0], my_sphere_color[1], my_sphere_color[2], 1.0) #emission  
-        # set as active material
-        my_sphere_obj.active_material = my_sphere_mat
+    my_sphere_mat = bpy.data.materials.new(name = my_sphere_name + '_material')
+    my_sphere_mat.diffuse_color = my_sphere_color # RGB
+    my_sphere_mat.diffuse_shader = 'LAMBERT'
+    my_sphere_mat.diffuse_intensity = 1.0
+    my_sphere_mat.specular_color = (1., 1., 1.)
+    my_sphere_mat.specular_shader = 'COOKTORR'
+    my_sphere_mat.specular_intensity = 0.5
+    my_sphere_mat.alpha = 1
+    my_sphere_mat.ambient = 1
+    my_sphere_mat.emit = 1 # set it to emit light
+    # 
+    # apply the material to the object
+    my_sphere_obj.data.materials.append(my_sphere_mat)
     # 
     # end of function, return the created object
     return my_sphere_obj
@@ -447,15 +365,9 @@ def delete_all_mesh_objects():
     # Delect objects by type
     for t_obj in bpy.context.scene.objects:
         if t_obj.type == 'MESH':
-            if bpy.app.version <= (2, 79, 99):
-                t_obj.select = True
-            else:
-                t_obj.select_set(True)
+            t_obj.select = True
         else:
-            if bpy.app.version <= (2, 79, 99):
-                t_obj.select = False
-            else:
-                t_obj.select_set(False)
+            t_obj.select = False
     # Call the operator only once
     bpy.ops.object.delete()
     # Deselect all
@@ -469,15 +381,9 @@ def delete_all_sphere_objects():
     # Delect objects by type
     for t_obj in bpy.context.scene.objects:
         if t_obj.type == 'MESH' and t_obj.name.startswith('My_sphere') == True:
-            if bpy.app.version <= (2, 79, 99):
-                t_obj.select = True
-            else:
-                t_obj.select_set(True)
+            t_obj.select = True
         else:
-            if bpy.app.version <= (2, 79, 99):
-                t_obj.select = False
-            else:
-                t_obj.select_set(False)
+            t_obj.select = False
     # Call the operator only once
     bpy.ops.object.delete()
     # Deselect all

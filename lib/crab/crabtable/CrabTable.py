@@ -86,11 +86,7 @@ class CrabTable(object):
             # get file path
             self.DataTableFile = data_table
             # check file format
-            if data_table.endswith('.fits') or data_table.endswith('.FITS') or \
-               data_table.endswith('.fits.gz') or data_table.endswith('.FITS.GZ'):
-                self.DataTableFormat = 'FITS'
-            else:
-                self.DataTableFormat = 'ASCII'
+            self.DataTableFormat = self.guessTableFormat(data_table)
             # print info
             if not 'verbose' in self.World:
                 self.World['verbose'] = 1
@@ -176,6 +172,15 @@ class CrabTable(object):
                             self.TableData[self.TableColNames[i]] = TempArray
         else:
             print('Error! The input data table is an empty string!')
+    # 
+    def guessTableFormat(self, data_table):
+        if data_table.endswith('.fits') or data_table.endswith('.FITS') or \
+           data_table.endswith('.fits.gz') or data_table.endswith('.FITS.GZ') or \
+           data_table.endswith('.fit') or data_table.endswith('.FIT') or \
+           data_table.endswith('.fit.gz') or data_table.endswith('.FIT.GZ'):
+            return 'FITS'
+        else:
+            return 'ASCII'
     # 
     def getData(self):
         return self.TableData
@@ -274,7 +279,8 @@ class CrabTable(object):
                     print("We will not overwrite unless you specify saveAs(overwrite=True)!")
                     return
             # 
-            if OutputFilePath.endswith('.fits') or OutputFilePath.endswith('.FITS'):
+            OutputTableFormat = self.guessTableFormat(OutputFilePath)
+            if OutputTableFormat == 'FITS':
                 #<TODO># self.DataTableStruct[self.DataTableIndex[self.TableIndex]].data = self.TableData
                 self.DataTableStruct.writeto(OutputFilePath)
             else:
