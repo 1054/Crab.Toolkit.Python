@@ -322,7 +322,7 @@ def calc_radio_line_frequencies(line_names, set_output_line_names = False):
     return output_frequencies_GHz
 
 
-def find_radio_lines_in_frequency_range(Frequency_Range_GHz, Redshift = 0.0, set_output_line_names = True, include_faint_lines = True):
+def find_radio_lines_in_frequency_range(Frequency_Range_GHz, Redshift = 0.0, set_output_line_names = True, include_faint_lines = True, set_invalid_edge_width = None):
     freqs, lines = calc_radio_line_frequencies('*', set_output_line_names = True)
     freqs = numpy.array(freqs) / (1.0+Redshift)
     output_line_freqs = []
@@ -335,7 +335,15 @@ def find_radio_lines_in_frequency_range(Frequency_Range_GHz, Redshift = 0.0, set
             if type(freq_range) is list or type(freq_range) is tuple:
                 if len(freq_range) >= 2:
                     for i in range(len(freqs)):
-                        if freqs[i] >= freq_range[0] and freqs[i] <= freq_range[1]:
+                        edge_width = [0.0, 0.0]
+                        if set_invalid_edge_width is not None:
+                            if numpy.isscalar(set_invalid_edge_width):
+                                edge_width = [float(set_invalid_edge_width), float(set_invalid_edge_width)]
+                            elif len(set_invalid_edge_width) == 1:
+                                edge_width = [float(set_invalid_edge_width[0]), float(set_invalid_edge_width[0])]
+                            else:
+                                edge_width = [float(set_invalid_edge_width[0]), float(set_invalid_edge_width[1])]
+                        if freqs[i] >= freq_range[0]+edge_width[0] and freqs[i] <= freq_range[1]-edge_width[0]:
                             if not include_faint_lines:
                                 if not lines[i].startswith('CO') and \
                                    not lines[i].startswith('[CI]') and \
@@ -345,6 +353,7 @@ def find_radio_lines_in_frequency_range(Frequency_Range_GHz, Redshift = 0.0, set
                                    not lines[i].startswith('[OIII]') and \
                                    not lines[i].startswith('H2O'):
                                     continue
+                            #print(freqs[i], lines[i])
                             output_line_freqs.append(freqs[i])
                             output_line_names.append(lines[i])
                 else:
@@ -485,19 +494,19 @@ def calc_JanskyPerKelvin(Aeff_m2, Frequency_GHz, Diameter_m):
     # S(Jy)/T_mb(K)=8.18E-7*theta(")^2*nu(GHz)^2 (Rohlfs & Wilson, Tools of Radioastronomy (2. ed., Eq. 8.20) -- http://www1.ynao.ac.cn/~jinhuahe/know_base/instruments/millimeter_radio/iram30m.htm
 
 
-def calc_ALMA_Bands(Frequency_GHz):
+def calc_ALMA_Bands(Frequency_GHz, edge_GHz=0.0):
     # 
     List_of_ALMA_Bands = [ 
-                        {'band number':1, 'lower frequency':35.0, 'higher frequency':50.0}, 
-                        {'band number':2, 'lower frequency':65.0, 'higher frequency':90.0}, 
-                        {'band number':3, 'lower frequency':84.0, 'higher frequency':116.0}, 
-                        {'band number':4, 'lower frequency':125.0, 'higher frequency':163.0}, 
-                        {'band number':5, 'lower frequency':163.0, 'higher frequency':211.0}, 
-                        {'band number':6, 'lower frequency':211.0, 'higher frequency':275.0}, 
-                        {'band number':7, 'lower frequency':275.0, 'higher frequency':373.0}, 
-                        {'band number':8, 'lower frequency':385.0, 'higher frequency':500.0}, 
-                        {'band number':9, 'lower frequency':602.0, 'higher frequency':720.0}, 
-                        {'band number':10, 'lower frequency':787.0, 'higher frequency':950.0}, 
+                        {'band number':1, 'lower frequency':35.0+edge_GHz, 'higher frequency':50.0-edge_GHz}, 
+                        {'band number':2, 'lower frequency':65.0+edge_GHz, 'higher frequency':90.0-edge_GHz}, 
+                        {'band number':3, 'lower frequency':84.0+edge_GHz, 'higher frequency':116.0-edge_GHz}, 
+                        {'band number':4, 'lower frequency':125.0+edge_GHz, 'higher frequency':163.0-edge_GHz}, 
+                        {'band number':5, 'lower frequency':163.0+edge_GHz, 'higher frequency':211.0-edge_GHz}, 
+                        {'band number':6, 'lower frequency':211.0+edge_GHz, 'higher frequency':275.0-edge_GHz}, 
+                        {'band number':7, 'lower frequency':275.0+edge_GHz, 'higher frequency':373.0-edge_GHz}, 
+                        {'band number':8, 'lower frequency':385.0+edge_GHz, 'higher frequency':500.0-edge_GHz}, 
+                        {'band number':9, 'lower frequency':602.0+edge_GHz, 'higher frequency':720.0-edge_GHz}, 
+                        {'band number':10, 'lower frequency':787.0+edge_GHz, 'higher frequency':950.0-edge_GHz}, 
                     ]
     if type(Frequency_GHz) is astropy.table.column.Column:
         t_freq = Frequency_GHz.data
@@ -1374,7 +1383,7 @@ def calc_CI_based_on_Liudz2015(IR_luminosity, line_J_up, set_also_output_line_lu
 
 
 
-def calc_radio_line_flux_from_IR_luminosity(line_name, IR_luminosity, z, starburstiness = 0.0, IR_color = 0.0, verbose = True):
+def calc_radio_line_flux_from_IR_luminosity(line_name, IR_luminosity, z, starburstiness = 0.0, IR_color = 0.0, verbose = True, return_lprm = False):
     if type(line_name) is not str:
         print('Errro! calc_radio_line_flux_from_IR_luminosity() requires the input line_name to be a string!')
         sys.exit()
@@ -1405,6 +1414,10 @@ def calc_radio_line_flux_from_IR_luminosity(line_name, IR_luminosity, z, starbur
             line_lsun = (line_lsun2-line_lsun1)*float(line_J_up-1)/float(line_J_up2-1) + line_lsun1
             line_flux = (line_flux2-line_flux1)*float(line_J_up-1)/float(line_J_up2-1) + line_flux1
             print('DEBUG: CO(4-3) %0.4f CO(1-0) %0.4f [Jy km s-1]' % (line_flux2, line_flux1))
+            print('DEBUG: CO(2-1) / CO(1-0) %0.4f [K/K]' % (
+                ((line_lprm2-line_lprm1)*float(2-1)/float(line_J_up2-1) + line_lprm1) / 
+                ((line_lprm2-line_lprm1)*float(1-1)/float(line_J_up2-1) + line_lprm1)
+                ))
             #<TODO># if line is 1<J<4, use an average -- although this may underestimates CO because CO SLED is up-curved.
     elif output_line_name.startswith('[OIII]'):
         line_J_up = int(re.sub(r'\[OIII\]\(([0-9]+)\-([0-9]+)\)', r'\1', output_line_name))
@@ -1458,6 +1471,8 @@ def calc_radio_line_flux_from_IR_luminosity(line_name, IR_luminosity, z, starbur
         print('line_luminosity   = %-12.6e  [L_solar]' % (line_lsun) )
         print('line_flux_density = %-12.8f  [Jy km s-1]' % (line_flux) )
     # 
+    if return_lprm:
+        return line_flux, line_lprm
     return line_flux
 
 
